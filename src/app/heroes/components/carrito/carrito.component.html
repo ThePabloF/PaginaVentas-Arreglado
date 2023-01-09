@@ -1,0 +1,49 @@
+<div >
+  <table class="table mb-1">
+    <thead class="thead-dark">
+      <tr>
+        <th >Imagen</th>
+        <th >Nombre</th>
+        <th >Precio</th>
+      <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="data.length > 0">
+      <ng-container *ngFor="let item of data; index as i" formArrayName="listaServicios">
+        <ng-container >
+          <tr >
+            <td >
+              <img mat-card-image [src]="item | rutasHeroes">
+            </td>
+            <td>
+             
+           {{item.superhero}}
+              <!-- <small>{{item.servicioActivo? item.precioServicio:'NO CUENTAS CON ESTE SERVICIO'}}</small> -->
+            </td>
+
+            <td >
+              {{item.first_appearance}}
+            </td>
+        <td>
+          <button (click)="eliminar(item)">Eliminar</button>
+        </td>
+        
+           
+
+    
+            <!-- <td
+              class="center-in-td"
+              *ngIf="
+                !obtenerValor(i, 'estaDisponible') || mostrarSms
+              "
+            >
+              <div></div>
+            </td> -->
+          </tr>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <button (click)="salvarFactura()">Facturar</button>
+</div>
